@@ -5,7 +5,7 @@ from main import main
 
 change_in_gear_file_name = "log_change_in_gear.json"
 gear_error_file_name = "log_error.json"
-gear_error_for_test_file_name = "log_error_for_test.json"
+gear_error_for_test_file_name = "log_error_for_recurring_error_test.json"
 
 class MainTest(unittest.TestCase):
     @classmethod
