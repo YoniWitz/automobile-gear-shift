@@ -17,3 +17,6 @@ Build sample queries to show the following:
 
     What is the average speed that causes a gear to change from 3 to 4 by car type.
     For any car that had an error in gear changes prior to one month ago, has it experienced any errors in the last 7 days?
+
+# Running program
+from directory: python -m unittest

@@ -48,7 +48,7 @@ def populate_logs(input_cars, car_inventories, vin_models, change_in_gear_file_n
     empty_logger(change_in_gear_file_name)
     empty_logger(gear_error_file_name)
 
-    strftime = "%d/%m/%Y %H:%M:%S"
+    strftime = "%d.%m.%Y"
 
     vins_prev_gear = {}
     for input_car in input_cars:

@@ -1,0 +1,50 @@
+[
+    {
+        "model": "Subaru",
+        "vin": "S1",
+        "from_gear": "3",
+        "to_gear": "3",
+        "speed": 90,
+        "time_stamp": "27.02.2024"
+    },
+    {
+        "model": "Subaru",
+        "vin": "S1",
+        "from_gear": "4",
+        "to_gear": "4",
+        "speed": 100,
+        "time_stamp": "27.02.2024"
+    },
+    {
+        "model": "Mazda",
+        "vin": "M1",
+        "from_gear": "3",
+        "to_gear": "3",
+        "speed": 100,
+        "time_stamp": "27.02.2023"
+    },
+    {
+        "model": "Subaru",
+        "vin": "S2",
+        "from_gear": "1",
+        "to_gear": "1",
+        "speed": 11,
+        "time_stamp": "27.02.2024"
+    },
+    {
+        "model": "Mazda",
+        "vin": "M1",
+        "from_gear": "4",
+        "to_gear": "4",
+        "speed": 100,
+        "time_stamp": "27.02.2024"
+    },
+    {
+        "model": "Mazda",
+        "vin": "M1",
+        "from_gear": "3",
+        "to_gear": "3",
+        "speed": 100,
+        "time_stamp": "27.02.2024"
+    }
+]
