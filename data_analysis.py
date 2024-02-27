@@ -18,7 +18,7 @@ def avg_speed_by_model(file_name, model):
     speeds = [log['speed'] for log in logs if log['model'] == model and int(log['from_gear']) == from_gear and int(log['to_gear']) == to_gear]
     
     if(len(speeds) > 0):
-        print( sum(speeds) / len(speeds))
+        return sum(speeds) / len(speeds)
     
     return 0
 
