@@ -1,1 +1,16 @@
-["{\n    \"model\": \"Subaru\",\n    \"vin\": \"S1\",\n    \"from_gear\": \"1\",\n    \"to_gear\": \"3\",\n    \"speed\": 90,\n    \"time_stamp\": \"27/02/2024 00:00:00\"\n}", "{\n    \"model\": \"Subaru\",\n    \"vin\": \"S1\",\n    \"from_gear\": \"3\",\n    \"to_gear\": \"4\",\n    \"speed\": 100,\n    \"time_stamp\": \"27/02/2024 00:00:00\"\n}"]
+[{
+    "model": "Subaru",
+    "vin": "S1",
+    "from_gear": "1",
+    "to_gear": "3",
+    "speed": 90,
+    "time_stamp": "27/02/2024 00:00:00"
+},
+{
+    "model": "Subaru",
+    "vin": "S1",
+    "from_gear": "3",
+    "to_gear": "4",
+    "speed": 100,
+    "time_stamp": "27/02/2024 00:00:00"
+}]

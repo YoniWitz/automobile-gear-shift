@@ -3,9 +3,6 @@ from datetime import date
 import json
 import os
 
-change_in_gear_file_name = "change_in_gear.json"
-gear_error_file_name = "log_error.json"
-
 class Log:
     def __init__(self, model, vin, from_gear, to_gear, speed, time_stamp):
         self.model = model
@@ -48,7 +45,7 @@ def print_out_log(fileName):
     for log in data:
         print(log)
 
-def populate_logs(input_cars, car_inventories, vin_models):
+def populate_logs(input_cars, car_inventories, vin_models, change_in_gear_file_name, gear_error_file_name):
     empty_logger(change_in_gear_file_name)
     empty_logger(gear_error_file_name)
 
