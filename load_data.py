@@ -3,10 +3,10 @@ from car_inventory import CarInventory
 from input_car import InputCar
 from vin_model import VinModel
 
-def load_car_inventory(fileName):
+def load_car_inventory(file_name):
     car_inventories = []
 
-    with open(fileName) as car_inv:
+    with open(file_name) as car_inv:
         data = json.load(car_inv)
 
     for car_inventory_item in data:
@@ -16,23 +16,23 @@ def load_car_inventory(fileName):
     
     return car_inventories
 
-def load_input_car(fileName):
+def load_input_car(file_name):
     input_cars = []
 
-    with open(fileName) as inputs:
+    with open(file_name) as inputs:
         data = json.load(inputs)
         
-    for inputCar in data:
-        new_car = InputCar(inputCar['vin'], inputCar['gear'], inputCar['speed'])
+    for input_car in data:
+        new_car = InputCar(input_car['vin'], input_car['gear'], input_car['speed'])
 
         input_cars.append(new_car)
     
     return input_cars
 
-def load_vin_model(fileName):
+def load_vin_model(file_name):
     vin_models = []
 
-    with open(fileName) as vin_mod:
+    with open(file_name) as vin_mod:
         data = json.load(vin_mod)
 
     for vin_model_item in data:
