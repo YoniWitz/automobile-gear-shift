@@ -8,17 +8,20 @@ from log import Log
 #                 }
 #             }
 #         ]
-logs=[]
-#def avg_speed_by_model(fileName):
-    #with open(fileName, 'r') as logger:
-        # data = json.loads(logger)
+from_gear = 3
+to_gear = 4
+speeds=[]
+
+def avg_speed_by_model(file_name, model):
+    with open(file_name) as logger:
+        logs = json.load(logger)
         
-        # for log in data:
-        #     print(type(log))
-        #     model = log.models
-        #     #new_log = Log(log['models'], log.fromGear, log.toGear, log.speed)
-        #     #logs.append(new_log)
-        #     print(type(model))
+    speeds = [log['speed'] for log in logs if log['model'] == model and int(log['from_gear']) == from_gear and int(log['to_gear']) == to_gear]
+    
+    if(len(speeds) > 0):
+        print( sum(speeds) / len(speeds))
+    
+    return 0
 
 
         

@@ -3,6 +3,10 @@
     "model" : "Subaru"
 },
 {
+    "vin" : "S2",
+    "model" : "Subaru"
+},
+{
     "vin" : "M1",
     "model" : "Mazda"
 }]

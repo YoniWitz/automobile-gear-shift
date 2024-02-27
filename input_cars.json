@@ -15,8 +15,58 @@
         "speed": 100 
     },
     {   
+        "vin": "S1",    
+        "gear": "1",    
+        "speed": 9 
+    },  
+    {   
+        "vin": "S1",    
+        "gear": "3",    
+        "speed": 25 
+    },
+    {   
+        "vin": "S1",    
+        "gear": "4",    
+        "speed": 30
+    },
+    {   
+        "vin": "M1",    
+        "gear": "3",    
+        "speed": 100 
+    },
+    {   
+        "vin": "S1",    
+        "gear": "1",    
+        "speed": 9 
+    },  
+    {   
+        "vin": "S2",    
+        "gear": "3",    
+        "speed": 29 
+    },
+    {   
+        "vin": "S2",    
+        "gear": "4",    
+        "speed": 39 
+    },
+    {   
+        "vin": "S2",    
+        "gear": "1",    
+        "speed": 11 
+    }, 
+    {   
         "vin": "M1",    
         "gear": "4",    
         "speed": 100 
+    },
+    {   
+        "vin": "M1",    
+        "gear": "3",    
+        "speed": 100 
+    },
+    {   
+        "vin": "M1",    
+        "gear": "4",    
+        "speed": 5 
     }
 ]

@@ -1,4 +1,3 @@
-        
 from datetime import date
 import json
 import os
@@ -14,32 +13,32 @@ class Log:
 
     def describe(self):
         print("log model: {}, vin: {}, fromGear: {}, toGear: {}, speed:{}, timeStamp:{}"
-              .format(self.model, self.vin, self.fromGear, self.toGear, self.gear, self.speed, self.timeStamp))
+              .format(self.model, self.vin, self.from_gear, self.to_gear, self.gear, self.speed, self.time_stamp))
 
-def empty_logger(fileName):
-    if os.path.exists(fileName):
+def empty_logger(file_name):
+    if os.path.exists(file_name):
         data = []
-        with open(fileName, "w") as logs:
+        with open(file_name, "w") as logs:
             json.dump(data, logs)
 
-def log(fileName, loggingInfo):
-    loggingInfoJson = json.dumps(loggingInfo, default=vars, indent=4)
-    
-    if os.path.exists(fileName):
-        if os.stat(fileName).st_size == 0:
-            data = []
-        else:
-            with open(fileName) as logs:
-                data = json.load(logs)
-        data.append(loggingInfoJson)
-    else:
-        data = [loggingInfoJson]
-                
-    with open(fileName, "w") as logs:
-        json.dump(data, logs)
+def log(file_name, logging_info):
+    existing_json = []
 
-def print_out_log(fileName):
-    with open(fileName) as logger:
+    if os.path.exists(file_name):
+        try:
+            with open(file_name,'r') as existing_data:
+                existing_json = json.load(existing_data)
+            existing_data.close()
+        except:
+            print("Unable to load file %s as JSON" % file_name)
+
+    existing_json.append(logging_info)
+
+    with open(file_name, "w") as logs:
+        json.dump(existing_json, logs,  default=vars, indent=4)
+
+def print_out_log(file_name):
+    with open(file_name) as logger:
         data = json.load(logger)
     
     for log in data:
@@ -51,19 +50,24 @@ def populate_logs(input_cars, car_inventories, vin_models, change_in_gear_file_n
 
     strftime = "%d/%m/%Y %H:%M:%S"
 
-    prevGear = input_cars[0].gear
+    prev_gear_per_vin = {}
     for input_car in input_cars:
         vin = input_car.vin
         model = [vin_model.model for vin_model in vin_models if vin_model.vin == vin][0]
-        
-        new_log = Log(model, vin, prevGear, input_car.gear, input_car.speed, date.today().strftime(strftime))
 
-        if input_car.gear != prevGear:
-            log(change_in_gear_file_name, new_log)
-            prevGear = input_car.gear
-
-        gearAndMaxSpeedForModel = [car_inventory.gears_max_speeds for car_inventory in car_inventories if car_inventory.model == model]
-        maxSpeed = [gearAndMaxSpeed['max_speed'] for gearAndMaxSpeed in gearAndMaxSpeedForModel[0] if gearAndMaxSpeed['gear'] == input_car.gear][0]
+        if vin in prev_gear_per_vin:
+            prev_gear = prev_gear_per_vin[vin]
+            
+            if input_car.gear != prev_gear:
+                new_log = Log(model, vin, prev_gear, input_car.gear, input_car.speed, date.today().strftime(strftime))
+                log(change_in_gear_file_name, new_log)
         
-        if(input_car.speed > maxSpeed):
+        prev_gear_per_vin[vin] = input_car.gear
+        
+
+        gear__max_speed_for_model = [car_inventory.gears_max_speeds for car_inventory in car_inventories if car_inventory.model == model][0]
+        max_speed = [gear_max_speed['max_speed'] for gear_max_speed in gear__max_speed_for_model if gear_max_speed['gear'] == input_car.gear][0]
+        
+        if(input_car.speed > max_speed):
+            new_log = Log(model, vin, input_car.gear, input_car.gear, input_car.speed, date.today().strftime(strftime))
             log(gear_error_file_name, new_log)
