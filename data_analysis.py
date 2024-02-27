@@ -10,7 +10,6 @@ from log import Log
 #         ]
 from_gear = 3
 to_gear = 4
-speeds=[]
 
 def avg_speed_by_model(file_name, model):
     with open(file_name) as logger:

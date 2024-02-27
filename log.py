@@ -50,23 +50,22 @@ def populate_logs(input_cars, car_inventories, vin_models, change_in_gear_file_n
 
     strftime = "%d/%m/%Y %H:%M:%S"
 
-    prev_gear_per_vin = {}
+    vins_prev_gear = {}
     for input_car in input_cars:
         vin = input_car.vin
         model = [vin_model.model for vin_model in vin_models if vin_model.vin == vin][0]
 
-        if vin in prev_gear_per_vin:
-            prev_gear = prev_gear_per_vin[vin]
+        if vin in vins_prev_gear:
+            vin_prev_gear = vins_prev_gear[vin]
             
-            if input_car.gear != prev_gear:
-                new_log = Log(model, vin, prev_gear, input_car.gear, input_car.speed, date.today().strftime(strftime))
+            if input_car.gear != vin_prev_gear:
+                new_log = Log(model, vin, vin_prev_gear, input_car.gear, input_car.speed, date.today().strftime(strftime))
                 log(change_in_gear_file_name, new_log)
         
-        prev_gear_per_vin[vin] = input_car.gear
+        vins_prev_gear[vin] = input_car.gear
         
-
-        gear__max_speed_for_model = [car_inventory.gears_max_speeds for car_inventory in car_inventories if car_inventory.model == model][0]
-        max_speed = [gear_max_speed['max_speed'] for gear_max_speed in gear__max_speed_for_model if gear_max_speed['gear'] == input_car.gear][0]
+        gear_max_speed_for_model = [car_inventory.gears_max_speeds for car_inventory in car_inventories if car_inventory.model == model][0]
+        max_speed = [gear_max_speed['max_speed'] for gear_max_speed in gear_max_speed_for_model if gear_max_speed['gear'] == input_car.gear][0]
         
         if(input_car.speed > max_speed):
             new_log = Log(model, vin, input_car.gear, input_car.gear, input_car.speed, date.today().strftime(strftime))
