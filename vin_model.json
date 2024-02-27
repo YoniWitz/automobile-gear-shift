@@ -9,4 +9,8 @@
 {
     "vin" : "M1",
     "model" : "Mazda"
+},
+{
+    "vin" : "M2",
+    "model" : "Mazda"
 }]
