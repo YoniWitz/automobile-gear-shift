@@ -6,7 +6,7 @@
            { "gear": "2", "max_speed": 20},
            { "gear": "3", "max_speed": 30},
            { "gear": "4", "max_speed": 40},
-           { "gear": "5", "max_speed": 50}
+           { "gear": "5", "max_speed": 150}
         ]       
     },  
     {   
@@ -16,7 +16,7 @@
             { "gear": "2", "max_speed": 22},
             { "gear": "3", "max_speed": 33},
             { "gear": "4", "max_speed": 44},
-            { "gear": "5", "max_speed": 55}
+            { "gear": "5", "max_speed": 155}
          ]   
     }
 ]

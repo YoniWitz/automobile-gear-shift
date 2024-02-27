@@ -17,7 +17,7 @@ def load_car_inventory(fileName):
     return car_inventories
 
 def load_input_car(fileName):
-    inputCars = []
+    input_cars = []
 
     with open(fileName) as inputs:
         data = json.load(inputs)
@@ -25,9 +25,9 @@ def load_input_car(fileName):
     for inputCar in data:
         new_car = InputCar(inputCar['vin'], inputCar['gear'], inputCar['speed'])
 
-        inputCars.append(new_car)
+        input_cars.append(new_car)
     
-    return inputCars
+    return input_cars
 
 def load_vin_model(fileName):
     vin_models = []
