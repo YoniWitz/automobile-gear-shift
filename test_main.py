@@ -1,4 +1,3 @@
-
 import unittest
 from data_analysis import avg_speed_by_model, recurring_error
 from main import main
