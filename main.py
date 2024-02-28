@@ -1,4 +1,3 @@
-#from data_analysis import avg_speed_by_model
 from load_data import load_car_inventory, load_input_car, load_vin_model
 from log import populate_logs
 def main(change_in_gear_file_name, gear_error_file_name):
